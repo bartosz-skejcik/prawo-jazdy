@@ -1,0 +1,61 @@
+id,question,answer_a,answer_b,answer_c,correct,media,points,category
+1,"W terenie zabudowanym dozwolona prędkość wynosi:",50,60,70,B,,1,B
+2,"Jaki jest obowiązek kierowcy wobec pieszego wchodzącego na przejście dla pieszych?","Ustąpić pierwszeństwa","Nacisnąć klakson","Nie zmniejszać prędkości",A,,3,B
+3,"Znak B-20 oznacza:","Zakaz ruchu w obu kierunkach","Stop – nakaz zatrzymania się","Zakaz skrętu w lewo",B,,3,B
+4,"Kierujący pojazdem jest zobowiązany do korzystania z pasów bezpieczeństwa:","Tylko na autostradach","Na wszystkich drogach publicznych","Tylko poza terenem zabudowanym",B,,3,B
+5,"Dozwolona prędkość na autostradzie dla samochodu osobowego wynosi:","100 km/h","120 km/h","140 km/h",C,,1,B
+6,"Co oznacza trójkąt z wykrzyknikiem na znaku drogowym?","Zakaz ruchu","Ostrzeżenie","Nakaz",B,,1,B
+7,"Podczas jazdy w nocy w terenie zabudowanym należy używać:","Świateł drogowych","Świateł mijania","Świateł awaryjnych",B,,1,B
+8,"Znak A-7 (ustąp pierwszeństwa) oznacza, że kierujący:","Musi bezwzględnie się zatrzymać","Musi ustąpić pierwszeństwa pojazdów na drodze z pierwszeństwem","Ma pierwszeństwo przejazdu",B,,3,B
+9,"Przy wymijaniu pojazdów jadących w przeciwnych kierunkach kierujący jest zobowiązany:","Zatrzymać pojazd","Trzymać się prawej strony drogi","Włączyć światła awaryjne",B,,1,B
+10,"Kierowca jest obowiązany mieć przy sobie podczas jazdy:","Prawo jazdy i dowód rejestracyjny","Tylko prawo jazdy","Tylko dowód osobisty",A,,1,B
+11,"Przy wyprzedzaniu, po zakończeniu manewru kierujący powinien:","Jak najszybciej powrócić na swój pas","Wrócić na swój pas, nie stwarzając zagrożenia","Zjechać na pobocze",B,,3,B
+12,"W przypadku kolizji drogowej bez ofiar w ludziach kierujący:","Musi wezwać policję","Może nie wzywać policji, jeśli uczestnicy są zgodni co do okoliczności","Musi zadzwonić na pogotowie",B,,3,B
+13,"Jakie oświetlenie jest obowiązkowe w pojazdach podczas jazdy w dzień?","Światła drogowe","Światła do jazdy dziennej lub mijania","Żadne oświetlenie nie jest wymagane w dzień",B,,3,B
+14,"Co to jest droga z pierwszeństwem?","Droga o nawierzchni utwardzonej","Droga oznaczona znakami D-1","Autostrada",B,,1,B
+15,"Ogólny znak nakazu ma kształt:","Trójkąta z czerwoną obwódką","Koła z niebieskim tłem","Kwadratu z czerwoną obwódką",B,,1,B
+16,"Dopuszczalna zawartość alkoholu we krwi kierowcy wynosi:","0,5 promila","0,2 promila","0,0 promila",B,,3,B
+17,"Przed przystąpieniem do jazdy kierowca powinien:","Sprawdzić stan techniczny pojazdu","Tylko wpiąć pasy bezpieczeństwa","Tylko sprawdzić stan opon",A,,1,B
+18,"Znak D-6 (przejście dla pieszych) informuje kierującego o:","Obowiązku zatrzymania się","Możliwości przekraczania jezdni przez pieszych","Zakazie zatrzymywania się",B,,3,B
+19,"Podczas holowania pojazdu jego prędkość nie może przekroczyć:","30 km/h","40 km/h","60 km/h",C,,1,B
+20,"Kiedy można wyprzedzać pojazd na skrzyżowaniu?","Nigdy","Gdy skrzyżowanie jest oznakowane","Gdy pojazd skręca w lewo",C,,3,B
+21,"Znak C-1 (nakaz jazdy w prawo przed znakiem) oznacza:","Można skręcić w prawo","Nakaz jazdy w prawo","Zalecenie skrętu w prawo",B,,1,B
+22,"Kierujący pojazdem jest zobowiązany zatrzymać pojazd na polecenie:","Tylko policjanta","Każdej osoby umundurowanej","Funkcjonariusza Policji i Straży Granicznej i innych uprawnionych",C,,3,B
+23,"W jaki sposób należy sygnalizować skręt w lewo?","Migaczem lewym z odpowiednim wyprzedzeniem","Tylko gestem ręki","Migaczem prawym",A,,1,B
+24,"Na przejeździe kolejowym bez zapór i sygnalizacji kierujący jest zobowiązany:","Jechać z prędkością nie większą niż 30 km/h","Zatrzymać się i upewnić, że nie nadjeżdża pociąg","Zwolnić i przejechać bez zatrzymania",B,,3,B
+25,"Zakaz postoju oznacza:","Zakaz chwilowego zatrzymania w celu wsiadania/wysiadania pasażerów","Zakaz zatrzymania pojazdu na czas dłuższy niż jest to potrzebne do wsiadania/wysiadania","Absolutny zakaz zatrzymania",B,,3,B
+26,"Co oznacza żółte migające światło na skrzyżowaniu?","Wolny przejazd bez ograniczeń","Ostrożność i stosowanie znaków lub zasad ogólnych","Bezwzględny zakaz jazdy",B,,3,B
+27,"Dziecko do lat 12 o wzroście poniżej 150 cm w samochodzie powinno:","Siedzieć na tylnym siedzeniu bez specjalnego fotelika","Korzystać z odpowiedniego fotelika lub poduszki do siedzenia","Być trzymane przez dorosłego",B,,3,B
+28,"Kierujący rowerem po drodze dla rowerów:","Ma pierwszeństwo przed pieszym","Musi ustąpić pieszemu","Ma takie samo prawo jak pieszy",A,,1,B
+29,"Prędkość maksymalna w obszarze zabudowanym w godzinach 23:00-05:00:","50 km/h","60 km/h","70 km/h",B,,1,B
+30,"W przypadku awarii pojazdu na autostradzie należy:","Zatrzymać się na pasie ruchu i włączyć światła awaryjne","Zjechać na pobocze/pas awaryjny, włączyć światła awaryjne i wystawić trójkąt ostrzegawczy","Kontynuować jazdę do najbliższego zjazdu",B,,3,B
+31,"Znak B-33 (ograniczenie prędkości) informuje o:","Minimalnej prędkości na drodze","Maksymalnej prędkości do końca drogi","Prędkości zalecanej",B,,1,B
+32,"Kierowca jest obowiązany przewozić dzieci do 12 roku życia:","Na tylnym siedzeniu","W foteliku lub urządzeniu przytrzymującym dostosowanym do ich wzrostu i wagi","Obok kierowcy",B,,3,B
+33,"Kiedy kierujący może używać sygnałów dźwiękowych w terenie zabudowanym?","W każdej chwili gdy uzna to za stosowne","Tylko w razie bezpośredniego niebezpieczeństwa","Gdy chce ostrzec pieszych",B,,3,B
+34,"Znak A-17 (dzieci) ostrzega o:","Szkole lub placu zabaw","Przejściu dla dzieci","Grupie dzieci przy drodze",A,,1,B
+35,"Podczas cofania kierujący jest zobowiązany:","Upewnić się, że manewr nie spowoduje zagrożenia","Włączyć światła awaryjne","Trąbić",A,,3,B
+36,"Ustąpić pierwszeństwa pieszemu na przejściu obowiązuje kierującego:","Tylko gdy pieszy wchodzi z prawej strony","Zawsze, gdy pieszy jest lub wchodzi na przejście","Tylko gdy pieszy stoi na przejściu",B,,3,B
+37,"Czas reakcji kierowcy wynosi przeciętnie:","0,5 sekundy","1 sekundę","2 sekundy",B,,1,B
+38,"Na drodze jednokierunkowej można parkować:","Tylko po prawej stronie","Po obu stronach jezdni","Tylko na wyznaczonych miejscach",B,,1,B
+39,"Jaki jest bezpieczny odstęp za poprzedzającym pojazdem?","Co najmniej taki jak droga hamowania","Dowolny","Minimum 10 metrów",A,,3,B
+40,"Przy włączaniu się do ruchu kierujący musi:","Ustąpić pierwszeństwa wszystkim uczestnikom ruchu","Mieć pierwszeństwo jako wjeżdżający","Zasygnalizować manewr i wjechać",A,,3,B
+41,"Przekroczenie prędkości o ponad 50 km/h w terenie zabudowanym skutkuje:","Mandatem 500 zł","Zatrzymaniem prawa jazdy na 3 miesiące","Zatrzymaniem prawa jazdy",C,,3,B
+42,"Podczas jazdy w gęstej mgle widoczność jest mniejsza niż 50 m. Co należy zrobić?","Jechać z normalną prędkością","Zwolnić i użyć świateł przeciwmgłowych","Zatrzymać pojazd",B,,3,B
+43,"Który z poniższych dokumentów nie jest wymagany podczas kontroli drogowej?","Dowód rejestracyjny","Prawo jazdy","Dowód osobisty",C,,1,B
+44,"Co to jest tzw. strefa zamieszkania?","Teren oznaczony specjalnym znakiem, gdzie obowiązuje prędkość 20 km/h","Obszar zabudowany","Osiedle mieszkaniowe",A,,1,B
+45,"W strefie zamieszkania pieszy:","Ma pierwszeństwo przed pojazdem","Musi ustępować pojazdom","Ma takie samo pierwszeństwo jak pojazd",A,,3,B
+46,"Zakaz zatrzymania się obowiązuje:","Do następnego skrzyżowania","Do odwołującego znaku lub skrzyżowania","Do końca drogi",B,,1,B
+47,"Jaki kąt obrotu kierownicy powoduje utratę kontroli nad pojazdem na śliskiej nawierzchni?","Duże skręty kierownicy","Małe skręty kierownicy","Kąt nie ma znaczenia",A,,1,B
+48,"Kierujący pojazdem podczas jazdy nie może:","Obsługiwać urządzenia komunikacyjnego trzymanego w ręce","Rozmawiać przez zestaw głośnomówiący","Słuchać radia",A,,3,B
+49,"Jeżeli ze skrzyżowania równorzędnego wyjeżdżają jednocześnie pojazd A (z lewej) i B (z prawej), pierwszeństwo ma:","Pojazd A","Pojazd B","Żaden, oboje muszą się zatrzymać",B,,3,B
+50,"Pas wyłączenia (zwalniający) służy do:","Wyprzedzania","Zwalniania pojazdu przed zjazdem z drogi głównej","Awaryjnego zatrzymania",B,,1,B
+51,"Żółta linia ciągła wzdłuż krawędzi jezdni oznacza:","Zakaz zatrzymywania się","Zakaz postoju","Dozwolony postój",A,,1,B
+52,"Pojazd uprzywilejowany to taki, który:","Jedzie szybko","Używa sygnałów świetlnych i dźwiękowych jednocześnie","Ma specjalną tablicę rejestracyjną",B,,3,B
+53,"Widzialność w nocy przy światłach drogowych wynosi przeciętnie:","50 m","100 m","200 m",C,,1,B
+54,"Podczas holowania pojazdu ze sprawnym układem hamulcowym lina holownicza może mieć długość co najwyżej:","3 m","6 m","9 m",B,,1,B
+55,"Sygnał A (seria krótkich sygnałów dźwiękowych) podawany przez kierującego kolumną oznacza:","Zmianę kierunku jazdy","Zatrzymanie","Wyprzedzanie",B,,1,B
+56,"Czym kieruje się zasada ograniczonego zaufania?","Kierowca musi zawsze mieć pierwszeństwo","Należy prowadzić pojazd w sposób ostrożny, zakładając możliwość błędu innych uczestników ruchu","Pierwszeństwo mają piesi",B,,3,B
+57,"Na skrzyżowaniu z sygnalizacją świetlną strzałkowy sygnał zielony zezwala na:","Jazdę tylko we wskazanym kierunku","Jazdę we wszystkich kierunkach","Zatrzymanie się",A,,3,B
+58,"Droga ekspresowa różni się od autostrady tym, że:","Ma tylko jeden pas ruchu","Może mieć skrzyżowania i przejazdy kolejowe","Jest bezpłatna",B,,1,B
+59,"Kierujący pojazdem musi ustąpić pierwszeństwa pieszemu, który:","Stoi na chodniku przy krawędzi jezdni","Wchodzi lub wszedł na przejście dla pieszych","Chodzi po drodze",B,,3,B
+60,"Po zjechaniu z autostrady prędkość należy:","Utrzymać na tym samym poziomie","Dostosować do warunków panujących na nowej drodze","Natychmiast zmniejszyć do 50 km/h",B,,1,B

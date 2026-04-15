@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prawo Jazdy – Quiz Kategoria B
 
-## Getting Started
+Aplikacja do ćwiczenia przed egzaminem na prawo jazdy kategorii B. Zbudowana z [Next.js](https://nextjs.org) i [shadcn/ui](https://ui.shadcn.com).
 
-First, run the development server:
+## Funkcje
+
+- Losuje **32 pytania** z bazy (20 × 3 pkt + 12 × 1 pkt = maks. 74 pkt)
+- Próg zaliczenia: **68 pkt** (jak na prawdziwym egzaminie)
+- Obsługa multimediów (zdjęcia, filmy) dołączonych do pytań
+- Przegląd odpowiedzi po zakończeniu quizu
+
+---
+
+## Szybki start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Otwórz [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Dodanie oficjalnej bazy pytań
 
-## Learn More
+### 1. Pobierz pliki
 
-To learn more about Next.js, take a look at the following resources:
+| Plik | URL |
+|---|---|
+| Baza pytań (XLSX) | https://www.gov.pl/attachment/921380de-3ac3-480d-b802-30aa03a67462 |
+| Multimedia cz. 1 | https://www.gov.pl/pliki/mi/multimedia_do_pytan.zip |
+| Multimedia cz. 2 | https://www.gov.pl/attachment/10d143bf-9e93-4d82-935d-48c89353d3ce |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Konwertuj XLSX → CSV
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pip install openpyxl
+python scripts/convert-questions.py pytania.xlsx data/questions.csv
+```
 
-## Deploy on Vercel
+### 3. Dodaj multimedia
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Wypakuj archiwa z multimediami i skopiuj zawartość do folderu:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+public/media/
+├── PB001.jpg
+├── PB002.mp4
+└── ...
+```
+
+Nazwy plików muszą być zgodne z kolumną `media` w bazie pytań.
+
+---
+
+## Struktura projektu
+
+```
+prawo-jazdy/
+├── data/
+│   └── questions.csv          # baza pytań (CSV)
+├── public/
+│   └── media/                 # multimedia (obrazy, filmy)
+├── scripts/
+│   └── convert-questions.py   # konwerter XLSX → CSV
+└── src/
+    ├── app/
+    │   ├── api/questions/     # endpoint API (GET /api/questions)
+    │   ├── quiz/              # strona quizu
+    │   └── page.tsx           # strona główna
+    ├── components/ui/         # komponenty shadcn/ui
+    └── lib/
+        ├── quiz.ts            # logika quizu
+        ├── parse-questions.ts # parser CSV
+        └── load-questions.ts  # wczytywanie danych
+```
+
+## Format CSV
+
+Aplikacja przyjmuje CSV z następującymi kolumnami:
+
+```
+id,question,answer_a,answer_b,answer_c,correct,media,points,category
+```
+
+- `correct` – `A`, `B` lub `C`
+- `media` – nazwa pliku w `public/media/` (opcjonalne)
+- `points` – `1` lub `3`
+- `category` – kategoria (np. `B`)
