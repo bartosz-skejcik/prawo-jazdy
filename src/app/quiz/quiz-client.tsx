@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, Trophy, RotateCcw } from "lucide-react";
 import type { Question, AnswerOption } from "@/lib/quiz";
 import { calculateScore } from "@/lib/quiz";
 import { Button } from "@/components/ui/button";
@@ -70,7 +71,10 @@ export default function QuizClient() {
   if (status === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground animate-pulse">Ładowanie pytań…</p>
+        <div className="text-center">
+          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
+          <p className="text-muted-foreground text-sm">Ładowanie pytań…</p>
+        </div>
       </div>
     );
   }
@@ -78,9 +82,12 @@ export default function QuizClient() {
   if (status === "error") {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
-        <Card className="max-w-md w-full">
+        <Card className="max-w-md w-full shadow-lg">
           <CardHeader>
-            <CardTitle>Błąd</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <XCircle className="w-5 h-5 text-destructive" />
+              Błąd ładowania
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground text-sm">
@@ -91,7 +98,7 @@ export default function QuizClient() {
           </CardContent>
           <CardFooter>
             <Button asChild variant="outline" className="w-full">
-              <Link href="/">← Powrót</Link>
+              <Link href="/"><ArrowLeft className="w-4 h-4 mr-2" />Powrót</Link>
             </Button>
           </CardFooter>
         </Card>
@@ -116,29 +123,33 @@ export default function QuizClient() {
     <div className="min-h-screen bg-background p-4 flex flex-col">
       {/* Top bar */}
       <div className="max-w-2xl mx-auto w-full mb-4">
-        <div className="flex items-center justify-between mb-2 text-sm text-muted-foreground">
-          <span>
-            Pytanie {currentIndex + 1} / {questions.length}
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-medium text-muted-foreground">
+            Pytanie <span className="text-foreground font-bold">{currentIndex + 1}</span>{" "}
+            <span className="text-muted-foreground">/ {questions.length}</span>
           </span>
-          <Badge variant={currentQuestion.points === 3 ? "default" : "secondary"}>
-            {currentQuestion.points} pkt
+          <Badge
+            variant={currentQuestion.points === 3 ? "default" : "secondary"}
+            className="font-semibold"
+          >
+            {currentQuestion.points === 3 ? "⭐ " : ""}{currentQuestion.points} pkt
           </Badge>
         </div>
-        <Progress value={progress} className="h-2" />
+        <Progress value={progress} className="h-2.5 rounded-full" />
       </div>
 
       {/* Question card */}
       <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col">
-        <Card className="flex-1 flex flex-col">
+        <Card className="flex-1 flex flex-col shadow-lg border-border/60">
           <CardHeader>
-            <CardTitle className="text-base font-medium leading-relaxed">
+            <CardTitle className="text-base font-medium leading-relaxed text-foreground">
               {currentQuestion.question}
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col gap-4">
             {/* Media */}
             {currentQuestion.media && (
-              <div className="w-full rounded-lg overflow-hidden border bg-muted flex items-center justify-center">
+              <div className="w-full rounded-xl overflow-hidden border bg-muted flex items-center justify-center">
                 {currentQuestion.mediaType === "video" ? (
                   <video
                     src={`/media/${currentQuestion.media}`}
@@ -146,7 +157,7 @@ export default function QuizClient() {
                     className="w-full max-h-64 object-contain"
                   />
                 ) : (
-                  <div className="relative w-full h-48">
+                  <div className="relative w-full h-52">
                     <Image
                       src={`/media/${currentQuestion.media}`}
                       alt="Multimedia do pytania"
@@ -172,12 +183,12 @@ export default function QuizClient() {
                     onClick={() => handleAnswerSelect(label)}
                     disabled={revealed}
                     className={[
-                      "w-full text-left px-4 py-3 rounded-lg border text-sm transition-all",
+                      "w-full text-left px-4 py-3 rounded-xl border-2 text-sm transition-all duration-150",
                       "flex items-start gap-3",
                       "disabled:cursor-default",
-                      !revealed && "hover:border-primary/50 hover:bg-muted cursor-pointer",
+                      !revealed && "hover:border-primary/40 hover:bg-primary/5 cursor-pointer",
                       isSelected && !revealed
-                        ? "border-primary bg-primary/10"
+                        ? "border-primary bg-primary/10 shadow-sm"
                         : "",
                       showCorrect
                         ? "border-green-500 bg-green-50 dark:bg-green-950/40 text-green-800 dark:text-green-300"
@@ -194,13 +205,13 @@ export default function QuizClient() {
                   >
                     <span
                       className={[
-                        "flex-shrink-0 w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center",
+                        "flex-shrink-0 w-6 h-6 rounded-full border-2 text-xs font-bold flex items-center justify-center",
                         showCorrect
-                          ? "border-green-500 text-green-700 dark:text-green-300"
+                          ? "border-green-500 text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-950"
                           : "",
-                        isWrong ? "border-red-500 text-red-700 dark:text-red-300" : "",
+                        isWrong ? "border-red-500 text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-950" : "",
                         isSelected && !revealed
-                          ? "border-primary text-primary"
+                          ? "border-primary text-primary bg-primary/10"
                           : "",
                         !showCorrect && !isWrong && !isSelected
                           ? "border-border text-muted-foreground"
@@ -221,30 +232,48 @@ export default function QuizClient() {
             {revealed && (
               <div
                 className={[
-                  "p-3 rounded-lg text-sm font-medium",
+                  "p-3 rounded-xl text-sm font-medium flex items-center gap-2",
                   answers[currentQuestion.id] === currentQuestion.correct
-                    ? "bg-green-50 dark:bg-green-950/40 text-green-800 dark:text-green-300"
-                    : "bg-red-50 dark:bg-red-950/40 text-red-800 dark:text-red-300",
+                    ? "bg-green-50 dark:bg-green-950/40 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-900"
+                    : "bg-red-50 dark:bg-red-950/40 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-900",
                 ].join(" ")}
               >
-                {answers[currentQuestion.id] === currentQuestion.correct
-                  ? "✓ Poprawna odpowiedź!"
-                  : `✗ Błędna odpowiedź. Prawidłowa odpowiedź to: ${currentQuestion.correct}`}
+                {answers[currentQuestion.id] === currentQuestion.correct ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                    Poprawna odpowiedź!
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="w-4 h-4 flex-shrink-0" />
+                    Błędna odpowiedź. Prawidłowa: <strong>{currentQuestion.correct}</strong>
+                  </>
+                )}
               </div>
             )}
           </CardContent>
           <CardFooter className="flex gap-2">
             {!revealed ? (
               <Button
-                className="w-full"
+                className="w-full font-semibold"
                 onClick={handleConfirm}
                 disabled={!selectedAnswer}
               >
                 Zatwierdź odpowiedź
               </Button>
             ) : (
-              <Button className="w-full" onClick={handleNext}>
-                {isLastQuestion ? "Zakończ quiz" : "Następne pytanie →"}
+              <Button className="w-full font-semibold" onClick={handleNext}>
+                {isLastQuestion ? (
+                  <>
+                    <Trophy className="w-4 h-4 mr-2" />
+                    Zakończ i sprawdź wynik
+                  </>
+                ) : (
+                  <>
+                    Następne pytanie
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </>
+                )}
               </Button>
             )}
           </CardFooter>
@@ -268,77 +297,88 @@ function ResultsScreen({
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="max-w-lg w-full">
-        {/* Result icon */}
+        {/* Result hero */}
         <div className="text-center mb-6">
           <div
             className={[
-              "inline-flex items-center justify-center w-20 h-20 rounded-full text-4xl mb-4",
-              passed ? "bg-green-100 dark:bg-green-950" : "bg-red-100 dark:bg-red-950",
+              "inline-flex items-center justify-center w-24 h-24 rounded-2xl text-4xl mb-4 shadow-lg",
+              passed
+                ? "bg-green-100 dark:bg-green-950 shadow-green-200 dark:shadow-green-950"
+                : "bg-red-100 dark:bg-red-950 shadow-red-200 dark:shadow-red-950",
             ].join(" ")}
           >
-            {passed ? "✓" : "✗"}
+            {passed ? (
+              <Trophy className="w-12 h-12 text-green-600 dark:text-green-400" />
+            ) : (
+              <XCircle className="w-12 h-12 text-red-600 dark:text-red-400" />
+            )}
           </div>
           <h1
             className={[
-              "text-2xl font-bold",
+              "text-3xl font-black",
               passed ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400",
             ].join(" ")}
           >
-            {passed ? "Egzamin zdany!" : "Egzamin niezdany"}
+            {passed ? "Egzamin zdany! 🎉" : "Egzamin niezdany"}
           </h1>
-          <p className="text-muted-foreground mt-1">
+          <p className="text-muted-foreground mt-1 text-sm">
             {passed
               ? "Gratulacje! Wynik spełnia wymogi egzaminacyjne."
               : "Nie martw się – więcej ćwiczeń i następnym razem się uda!"}
           </p>
         </div>
 
-        <Card>
+        <Card className="shadow-xl border-border/60">
           <CardContent className="pt-6">
-            <div className="grid grid-cols-2 gap-4 text-sm mb-6">
-              <div className="flex flex-col gap-1 p-3 rounded-lg bg-muted">
-                <span className="text-muted-foreground">Wynik punktowy</span>
-                <span className="font-bold text-foreground text-xl">
-                  {score} / {maxScore}
+            <div className="grid grid-cols-2 gap-3 text-sm mb-5">
+              <div className="flex flex-col gap-1 p-3 rounded-xl bg-muted">
+                <span className="text-muted-foreground text-xs uppercase tracking-wide font-medium">Wynik punktowy</span>
+                <span className="font-black text-foreground text-2xl">
+                  {score} <span className="text-muted-foreground font-normal text-base">/ {maxScore}</span>
                 </span>
               </div>
-              <div className="flex flex-col gap-1 p-3 rounded-lg bg-muted">
-                <span className="text-muted-foreground">Procent</span>
-                <span className="font-bold text-foreground text-xl">{percentage}%</span>
+              <div className="flex flex-col gap-1 p-3 rounded-xl bg-muted">
+                <span className="text-muted-foreground text-xs uppercase tracking-wide font-medium">Procent</span>
+                <span className="font-black text-foreground text-2xl">{percentage}%</span>
               </div>
-              <div className="flex flex-col gap-1 p-3 rounded-lg bg-muted">
-                <span className="text-muted-foreground">Poprawne odpowiedzi</span>
-                <span className="font-bold text-foreground text-xl">
-                  {correctCount} / {questions.length}
+              <div className="flex flex-col gap-1 p-3 rounded-xl bg-muted">
+                <span className="text-muted-foreground text-xs uppercase tracking-wide font-medium">Poprawne</span>
+                <span className="font-black text-foreground text-2xl">
+                  {correctCount} <span className="text-muted-foreground font-normal text-base">/ {questions.length}</span>
                 </span>
               </div>
-              <div className="flex flex-col gap-1 p-3 rounded-lg bg-muted">
-                <span className="text-muted-foreground">Próg zaliczenia</span>
-                <span className="font-bold text-foreground text-xl">68 / 74</span>
+              <div className="flex flex-col gap-1 p-3 rounded-xl bg-muted">
+                <span className="text-muted-foreground text-xs uppercase tracking-wide font-medium">Próg zaliczenia</span>
+                <span className="font-black text-foreground text-2xl">
+                  68 <span className="text-muted-foreground font-normal text-base">/ 74</span>
+                </span>
               </div>
             </div>
 
             <Progress
               value={(score / maxScore) * 100}
               className={[
-                "h-3",
+                "h-3 rounded-full",
                 passed ? "[&>div]:bg-green-500" : "[&>div]:bg-red-500",
               ].join(" ")}
             />
           </CardContent>
           <CardFooter className="flex gap-2 flex-col sm:flex-row">
             <Button asChild variant="outline" className="w-full">
-              <Link href="/">← Strona główna</Link>
+              <Link href="/"><ArrowLeft className="w-4 h-4 mr-2" />Strona główna</Link>
             </Button>
-            <Button asChild className="w-full">
-              <Link href="/quiz">Powtórz quiz</Link>
+            <Button asChild className="w-full font-semibold">
+              <Link href="/quiz">
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Spróbuj ponownie
+              </Link>
             </Button>
           </CardFooter>
         </Card>
 
         {/* Answer review */}
         <details className="mt-6">
-          <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground transition-colors select-none">
             Przegląd odpowiedzi ({questions.length} pytań)
           </summary>
           <div className="mt-3 flex flex-col gap-2">
@@ -349,7 +389,7 @@ function ResultsScreen({
                 <div
                   key={q.id}
                   className={[
-                    "p-3 rounded-lg border text-sm",
+                    "p-3 rounded-xl border text-sm",
                     correct
                       ? "border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950/30"
                       : "border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950/30",
