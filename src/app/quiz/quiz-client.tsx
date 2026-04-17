@@ -120,7 +120,7 @@ export default function QuizClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-background p-4 flex flex-col">
+    <div className="min-h-screen bg-background px-4 py-6 sm:py-8">
       {/* Top bar */}
       <div className="max-w-2xl mx-auto w-full mb-4">
         <div className="flex items-center justify-between mb-2">
@@ -141,14 +141,14 @@ export default function QuizClient() {
       </div>
 
       {/* Question card */}
-      <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col">
-        <Card className="flex-1 flex flex-col shadow-lg border-border/60">
+      <div className="max-w-2xl mx-auto w-full">
+        <Card className="shadow-lg border-border/60">
           <CardHeader>
             <CardTitle className="text-base font-medium leading-relaxed text-foreground">
               {currentQuestion.question}
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex-1 flex flex-col gap-4">
+          <CardContent className="flex flex-col gap-4">
             {/* Media */}
             {currentQuestion.media && (
               <div className="w-full rounded-xl overflow-hidden border bg-muted flex items-center justify-center">

@@ -19,7 +19,7 @@ export default function HomePage() {
   ).length;
 
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center p-4">
+    <main className="min-h-screen bg-background flex items-center justify-center px-4 py-10 sm:py-16">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
@@ -29,13 +29,13 @@ export default function HomePage() {
       <div className="relative w-full max-w-lg">
         {/* Hero */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary text-primary-foreground text-3xl font-black mb-5 shadow-lg shadow-primary/30">
-            <Car className="w-10 h-10" />
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary text-primary-foreground text-3xl font-black mb-5 shadow-lg shadow-primary/30">
+            <Car className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
-          <h1 className="text-4xl font-black tracking-tight text-foreground">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
             Prawo Jazdy
           </h1>
-          <p className="text-muted-foreground mt-2 text-base">
+          <p className="text-muted-foreground mt-2 text-sm sm:text-base">
             Kat. B · Oficjalna baza pytań egzaminacyjnych
           </p>
         </div>
