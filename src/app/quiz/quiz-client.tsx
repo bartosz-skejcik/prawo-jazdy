@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, Trophy, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, Trophy, RotateCcw, Star } from "lucide-react";
 import type { Question, AnswerOption } from "@/lib/quiz";
 import { calculateScore } from "@/lib/quiz";
 import { Button } from "@/components/ui/button";
@@ -132,7 +132,9 @@ export default function QuizClient() {
             variant={currentQuestion.points === 3 ? "default" : "secondary"}
             className="font-semibold"
           >
-            {currentQuestion.points === 3 ? "⭐ " : ""}{currentQuestion.points} pkt
+            {currentQuestion.points === 3 && (
+              <Star className="w-3 h-3 mr-1" aria-hidden="true" />
+            )}{currentQuestion.points} pkt
           </Badge>
         </div>
         <Progress value={progress} className="h-2.5 rounded-full" />
@@ -319,7 +321,7 @@ function ResultsScreen({
               passed ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400",
             ].join(" ")}
           >
-            {passed ? "Egzamin zdany! 🎉" : "Egzamin niezdany"}
+            {passed ? <>Egzamin zdany! <span role="img" aria-label="świętowanie">🎉</span></> : "Egzamin niezdany"}
           </h1>
           <p className="text-muted-foreground mt-1 text-sm">
             {passed

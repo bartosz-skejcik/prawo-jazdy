@@ -21,7 +21,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-background flex items-center justify-center p-4">
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
       </div>
